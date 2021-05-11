@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-bar-items" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Rails eCommerce", "#", class: "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse" id="nav-bar-items">
+      <ul class="nav navbar-nav">
+        <li><%= link_to t(:products), "#" %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to t(:log_in), "#" %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
