@@ -19,6 +19,7 @@ gem "figaro"
 gem "faker", "2.1.2"
 
 group :development, :test do
+  gem "rspec-rails", "~> 4.0.1"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-checkstyle_formatter", require: false
