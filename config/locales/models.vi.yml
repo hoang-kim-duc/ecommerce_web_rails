@@ -1,5 +1,15 @@
 vi:
   product:
     name: "Sản phẩm"
+    quantity: "Số lượng"
     price: "Giá"
     manufacturer: "Nhà sản xuất"
+    errors:
+      add_cart_error: "Không thành công. Sản phẩm ID %{id} không tồn tại"
+  cart:
+    amoun: "Tổng"
+    price: "Giá"
+    checkout: "Thanh toán"
+    add_to_cart: "Thêm vào giỏ hàng"
+    messages:
+      add_to_cart_success: "Thêm vào giỏ hàng thành công"

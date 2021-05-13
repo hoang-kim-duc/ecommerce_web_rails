@@ -6,3 +6,4 @@ user:
 product:
   img_max_size: 200
   per_page: 8
+  img_max_size_cart: 50
