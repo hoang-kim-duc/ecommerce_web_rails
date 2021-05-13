@@ -8,4 +8,9 @@ vi:
     previous_label: "&#8592; Quay lại"
     next_label: "Tiếp theo &#8594;"
     page_gap: "&hellip;"
-  currency: "VND"
+  number:
+    currency:
+      format:
+        format: "%n %u"
+        precision: 0
+        unit: "VND"
