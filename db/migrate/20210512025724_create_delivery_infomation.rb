@@ -1,6 +1,6 @@
-class CreateDeliveryInfomations < ActiveRecord::Migration[6.1]
+class CreateDeliveryInfomation < ActiveRecord::Migration[6.1]
   def change
-    create_table :shipments do |t|
+    create_table :delivery_infomation do |t|
       t.string :receipiant_name
       t.string :receipiant_phone
       t.string :receipiant_address
@@ -8,6 +8,6 @@ class CreateDeliveryInfomations < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_foreign_key :shipments, :users
+    add_foreign_key :delivery_infomation, :users
   end
 end

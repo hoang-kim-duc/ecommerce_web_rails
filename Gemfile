@@ -17,6 +17,8 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "config"
 gem "figaro"
 gem "faker", "2.1.2"
+gem "will_paginate", "3.1.8"
+gem "bootstrap-will_paginate", "1.0.0"
 
 group :development, :test do
   gem "rspec-rails", "~> 4.0.1"

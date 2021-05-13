@@ -4,3 +4,8 @@ vi:
   en: "Tiếng Anh"
   vi: "Tiếng Việt"
   home: "Trang chủ"
+  will_paginate:
+    previous_label: "&#8592; Quay lại"
+    next_label: "Tiếp theo &#8594;"
+    page_gap: "&hellip;"
+  currency: "VND"
