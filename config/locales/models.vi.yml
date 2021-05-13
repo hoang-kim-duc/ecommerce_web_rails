@@ -1,0 +1,5 @@
+vi:
+  product:
+    name: "Sản phẩm"
+    price: "Giá"
+    manufacturer: "Nhà sản xuất"
