@@ -4,6 +4,8 @@ vi:
   en: "Tiếng Anh"
   vi: "Tiếng Việt"
   home: "Trang chủ"
+  close: "Đóng"
+  success: "Thành công"
   will_paginate:
     previous_label: "&#8592; Quay lại"
     next_label: "Tiếp theo &#8594;"

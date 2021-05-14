@@ -4,3 +4,13 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ #lblCartCount {
+  font-size: 12px;
+  background: #6f2a0cba;
+  color: #fff;
+  padding: 0 5px;
+  vertical-align: top;
+  margin-left: -10px;
+}
+

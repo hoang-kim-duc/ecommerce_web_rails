@@ -1,5 +1,15 @@
 en:
   product:
     name: "Product"
+    quantity: "Quantity"
     price: "Price"
     manufacturer: "Manufacturer"
+    errors:
+      add_cart_error: "Unsuccessfully. Product with ID %{id} not exist"
+  cart:
+    amoun: "Amount"
+    price: "Unit price"
+    checkout: "Checkout"
+    add_to_cart: "Add to cart"
+    messages:
+      add_to_cart_success: "Add product to cart successfully"
