@@ -1,2 +1,0 @@
-class DeliveryInfomation < ApplicationRecord
-end

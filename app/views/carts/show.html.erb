@@ -41,8 +41,6 @@
 </table>
 <div class="col-12" style="text-align: right;">
   <button class="btn btn-success mr-4" id="checkOutBtn">
-    <a href="checkout" style="text-decoration: none; color: white;">
-      <%= t "cart.checkout" %>
-    </a>
+    <%= link_to t("cart.checkout"), shipping_url, style: "text-decoration: none; color: white;" %>
   </button>
 </div>

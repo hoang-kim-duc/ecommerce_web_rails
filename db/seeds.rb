@@ -1,6 +1,6 @@
 User.create!(
   name: "Sample User",
-  email: "hoangkimduclqd@gmail.com",
+  email: "test-user@gmail.com",
   password: "123456",
   password_confirmation: "123456",
   role: 1,
@@ -29,11 +29,20 @@ Category.create!(
 
 30.times do |n|
   Product.create!(
-    name: Faker::Device.model_name,
+    name: Faker::Device.unique.model_name,
     manufacturer: Faker::Device.manufacturer,
     detail: "Product #{n + 1} detail",
     quantity: Faker::Number.within(range: 5..20),
     price: Faker::Number.within(range: 10..30) * 1000000,
     category_id: 1
+  )
+end
+
+5.times do |n|
+  DeliveryAddress.create!(
+    name: Faker::Name.unique.name,
+    phone: Faker::PhoneNumber.phone_number,
+    address: Faker::Address.full_address,
+    user_id: User.all.ids.sample
   )
 end

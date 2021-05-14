@@ -6,6 +6,9 @@ en:
   home: "Home"
   close: "Close"
   success: "Success"
+  edit: "Edit"
+  delete: "Delete"
+  add: "Add"
   will_paginate:
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"

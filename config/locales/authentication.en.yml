@@ -5,3 +5,4 @@ en:
   incorrect_email_password: "Invalid email/password combination"
   account: "Account"
   profile: "Profile"
+  have_to_login: "You have to log in to perform this action"

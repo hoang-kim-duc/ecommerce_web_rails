@@ -1,4 +1,6 @@
 vi:
+  model:
+    delivery_address: "Thông tin giao hàng"
   product:
     name: "Sản phẩm"
     quantity: "Số lượng"
@@ -13,3 +15,13 @@ vi:
     add_to_cart: "Thêm vào giỏ hàng"
     messages:
       add_to_cart_success: "Thêm vào giỏ hàng thành công"
+  delivery_address:
+    name: "Tên"
+    phone: "Số điện thoại"
+    address: "Địa chỉ giao hàng"
+    choose_this: "Giao đến địa chỉ này"
+    add_another: "Bạn muốn giao hàng đến địa chỉ khác?"
+    add: "Thêm địa chỉ giao hàng mới"
+    add_address: "Thêm địa chỉ"
+    messages:
+      create_address_success: "Tạo địa chỉ giao hàng thành công"
