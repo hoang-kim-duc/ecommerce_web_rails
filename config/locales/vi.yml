@@ -6,6 +6,9 @@ vi:
   home: "Trang chủ"
   close: "Đóng"
   success: "Thành công"
+  edit: "Sửa"
+  delete: "Xoá"
+  add: "Thêm"
   will_paginate:
     previous_label: "&#8592; Quay lại"
     next_label: "Tiếp theo &#8594;"

@@ -5,3 +5,4 @@ vi:
   incorrect_email_password: "Mật khẩu hoặc email không đúng"
   account: "Tài khoản"
   profile: "Thông tin cá nhân"
+  have_to_login: "Bạn phải đăng nhập để thực hiện thao tác này"

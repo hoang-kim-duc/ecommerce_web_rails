@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :check_nil_product, only: :add_to_cart
+  before_action :check_logged_in
 
   def add_to_cart
     product_id = params[:product_id]

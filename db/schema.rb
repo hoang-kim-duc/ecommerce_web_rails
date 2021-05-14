@@ -21,14 +21,14 @@ ActiveRecord::Schema.define(version: 2021_05_12_030031) do
     t.index ["id", "father_id"], name: "index_categories_on_id_and_father_id", unique: true
   end
 
-  create_table "delivery_infomation", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "receipiant_name"
-    t.string "receipiant_phone"
-    t.string "receipiant_address"
+  create_table "delivery_addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "address"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "fk_rails_3fac865d2d"
+    t.index ["user_id"], name: "fk_rails_42675d2d6f"
   end
 
   create_table "order_details", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 2021_05_12_030031) do
     t.integer "total"
     t.integer "status", default: 0
     t.bigint "user_id", null: false
-    t.bigint "delivery_infomation_id"
+    t.bigint "delivery_address_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["delivery_infomation_id"], name: "fk_rails_d4e2596182"
+    t.index ["delivery_address_id"], name: "fk_rails_9fa1dd8f1c"
     t.index ["user_id"], name: "fk_rails_f868b47f6a"
   end
 
@@ -85,10 +85,10 @@ ActiveRecord::Schema.define(version: 2021_05_12_030031) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "delivery_infomation", "users"
+  add_foreign_key "delivery_addresses", "users"
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
-  add_foreign_key "orders", "delivery_infomation"
+  add_foreign_key "orders", "delivery_addresses"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
 end

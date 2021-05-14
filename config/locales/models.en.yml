@@ -1,4 +1,6 @@
 en:
+  model:
+    delivery_address: "Delivery address"
   product:
     name: "Product"
     quantity: "Quantity"
@@ -13,3 +15,13 @@ en:
     add_to_cart: "Add to cart"
     messages:
       add_to_cart_success: "Add product to cart successfully"
+  delivery_address:
+    name: "Name"
+    phone: "Phone"
+    address: "Shipping address"
+    choose_this: "Ship to this address"
+    add_another: "Want to deliver to another address?"
+    add: "Add new delivery address"
+    add_address: "Add address"
+    messages:
+      create_address_success: "Create delivery address successfully"

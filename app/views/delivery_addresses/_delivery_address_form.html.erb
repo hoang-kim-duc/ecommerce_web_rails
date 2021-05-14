@@ -1,0 +1,15 @@
+<%= form_for current_user.delivery_addresses.build do |f| %>
+  <div class="form-group">
+    <%= f.label :name, t("delivery_address.name")%>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, t("delivery_address.phone")%>
+    <%= f.text_field :phone, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, t("delivery_address.address")%>
+    <%= f.text_field :address, class: "form-control" %>
+  </div>
+  <%= f.submit t("delivery_address.add_address"), class: "btn btn-primary center-block" %>
+<% end %>

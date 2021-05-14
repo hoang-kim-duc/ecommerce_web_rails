@@ -2,6 +2,7 @@ user:
   name_max_len: 50
   pwd_min_len: 6
   email_max_len: 100
+  phone_max_len: 40
  
 product:
   img_max_size: 200

@@ -1,0 +1,24 @@
+<% provide :tilte, t("model.delivery_address") %>
+<div class="row">
+  <%= render current_user.delivery_addresses %>
+</div>
+<hr>
+<%= t "delivery_address.add_another" %>
+<a style="cursor: pointer;" data-toggle="modal" data-target="#delivery_address_form">
+  <%= t "delivery_address.add" %>
+</a>
+<div class="modal fade" tabindex="-1" role="dialog" id="delivery_address_form">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="display: inline-block;"><%= t "delivery_address.add" %></h5>
+        <button type="button" class="close" data-dismiss="modal" style="display: inline-block;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "delivery_address_form" %>
+      </div>
+    </div>
+  </div>
+</div>
