@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   scope "/checkout" do
     get "/cart", to: "carts#show"
     get "/shipping", to: "delivery_addresses#show"
+    post "/shipping", to: "delivery_addresses#save_choice"
+    get "/confirmation", to: "orders#new"
   end
   resources :products
   resources :delivery_addresses, only: :create
+  resources :orders, except: :new
 end

@@ -14,7 +14,13 @@
   <div class="container">
     <%= render "layouts/navbar" %>
     <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <div class="alert alert-<%= message_type %>">
+          <% if message.instance_of? Array %>
+            <%= message.join("<br>") %>
+          <% else %>
+            <%= message %>
+          <% end %>
+        </div>
     <% end %>
     <%= yield %>
     <%= render "layouts/footer" %>

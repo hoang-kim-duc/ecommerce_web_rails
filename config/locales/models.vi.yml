@@ -9,10 +9,15 @@ vi:
     errors:
       add_cart_error: "Không thành công. Sản phẩm ID %{id} không tồn tại"
   cart:
-    amoun: "Tổng"
+    amount: "Tổng"
     price: "Giá"
+    total: "Tổng"
+    subtotal: "Tạm tính"
     checkout: "Thanh toán"
+    finish: "Hoàn tất đặt hàng"
     add_to_cart: "Thêm vào giỏ hàng"
+    shipping_cost: "Phí vận chuyển"
+    address_change: "Thay đổi địa chỉ"
     messages:
       add_to_cart_success: "Thêm vào giỏ hàng thành công"
   delivery_address:
@@ -25,3 +30,10 @@ vi:
     add_address: "Thêm địa chỉ"
     messages:
       create_address_success: "Tạo địa chỉ giao hàng thành công"
+  order:
+    confirmation: "Xác nhận đặt hàng"
+    attributes:
+      note: "Ghi chú đơn hàng"
+    messages:
+      have_not_choosen_address: "Bạn chưa chọn địa chỉ giao hàng. Chọn ở phía dưới hoặc tạo địa chỉ mới"
+      create_success: "Bạn đã đặt hàng thành công"

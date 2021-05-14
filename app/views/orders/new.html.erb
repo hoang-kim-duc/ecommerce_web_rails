@@ -1,0 +1,63 @@
+<% provide :title, t("order.confirmation") %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t "product.name" %></th>
+      <th scope="col"><%= t "product.quantity" %></th>
+      <th scope="col"><%= t "cart.price" %></th>
+      <th scope="col"><%= t "cart.amount" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td>
+          <%= link_to product do %>
+            <%= image_tag "https://www.mageplaza.com/assets/img/extensions/product-labels.png", size: Settings.product.img_max_size_cart %>
+            <span><%= product.name %></span>
+          <% end %>
+        </td>
+        <td class="align-middle"><%= product.quantity %></td>
+        <td class="align-middle"><%= number_to_currency product.price %></td>
+        <td class="align-middle">
+          <%= number_to_currency product.quantity * product.price %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><%= t "cart.subtotal" %></td>
+      <td><%= number_to_currency @total_price %></td>
+    </tr>
+    <tr>
+      <td id="trans_cell"></td>
+      <td id="trans_cell"></td>
+      <td><%= t "cart.shipping_cost" %></td>
+      <td><%= number_to_currency @shipping_cost %></td>
+    </tr>
+    <tr>
+      <td id="trans_cell"></td>
+      <td id="trans_cell"></td>
+      <td><%= t "cart.total" %></td>
+      <td><b><%= number_to_currency @total_price + @shipping_cost %></b></td>
+    </tr>
+  </tbody>
+</table>
+<%= form_for Order.new do |f| %>
+  <div id="delivery_address_box">
+    <div>
+      <h4><%= t "model.delivery_address" %></h4>
+      <p><%= t "delivery_address.name" %>: <%= @delivery_address.name %></p>
+      <p><%= t "delivery_address.phone" %>: <%= @delivery_address.phone %></p>
+      <p><%= t "delivery_address.address" %>: <%= @delivery_address.address %></p>
+    </div>
+    <%= f.text_area :note, placeholder: t("order.attributes.note"), style: "margin: 1vw; max-width: 20vw;", class: "form-control" %>
+  </div>
+  <div class="col-12" style="text-align: right;">
+    <%= f.submit t("cart.finish"), class: "btn btn-primary" %>
+    <button class="btn btn-default" style="margin: 0 1vw 0 1vw;">
+      <%= link_to t("cart.address_change"), shipping_path, style: "text-decoration: none; color: black;" %>
+    </button>
+  </div>
+<% end %>

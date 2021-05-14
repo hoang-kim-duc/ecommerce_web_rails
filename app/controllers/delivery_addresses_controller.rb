@@ -10,10 +10,15 @@ class DeliveryAddressesController < ApplicationController
       msg = t "delivery_address.messages.create_address_success"
     else
       title = :danger
-      msg = @delivery_address.errors.full_messages.join "\n"
+      msg = @delivery_address.errors.full_messages
     end
     flash[title] = msg
     redirect_to shipping_path
+  end
+
+  def save_choice
+    session[:delivery_address_id] = params[:delivery_address_id]
+    redirect_to confirmation_url
   end
 
   private

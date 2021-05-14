@@ -9,10 +9,15 @@ en:
     errors:
       add_cart_error: "Unsuccessfully. Product with ID %{id} not exist"
   cart:
-    amoun: "Amount"
+    amount: "Amount"
     price: "Unit price"
+    total: "Total"
+    subtotal: "Subtotal"
     checkout: "Checkout"
+    finish: "Finish order"
     add_to_cart: "Add to cart"
+    shipping_cost: "Shipping cost"
+    address_change: "Change delivery address"
     messages:
       add_to_cart_success: "Add product to cart successfully"
   delivery_address:
@@ -25,3 +30,10 @@ en:
     add_address: "Add address"
     messages:
       create_address_success: "Create delivery address successfully"
+  order:
+    confirmation: "Order confirmation"
+    attributes:
+      note: "Note for this order"
+    messages:
+      have_not_choosen_address: "You have not choosen a delivery address. Pick beblow or create new one"
+      create_success: "Create order successlly"

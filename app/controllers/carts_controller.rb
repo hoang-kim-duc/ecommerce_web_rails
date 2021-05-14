@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   before_action :check_nil_product, only: :add_to_cart
   before_action :check_logged_in
+  before_action :load_products_from_cart, only: :show
 
   def add_to_cart
     product_id = params[:product_id]
@@ -16,19 +17,7 @@ class CartsController < ApplicationController
     end
   end
 
-  def show
-    ids = cart.keys
-    quantities = cart.values
-    @products = []
-    @total_price = 0
-    ids.each_with_index do |id, i|
-      product = Product.find_by id: id
-      remove_form_cart(id) && next unless product
-      product.quantity = quantities[i]
-      @products << product
-      @total_price += product.price * product.quantity
-    end
-  end
+  def show; end
 
   private
 

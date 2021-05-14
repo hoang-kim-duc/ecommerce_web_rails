@@ -46,3 +46,4 @@ end
     user_id: User.all.ids.sample
   )
 end
+

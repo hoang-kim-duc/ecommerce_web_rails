@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.string :note
       t.integer :shipping
       t.integer :total
-      t.integer :status, default: 0
+      t.integer :status, default: 1
       t.bigint :user_id, null: false
       t.bigint :delivery_address_id
 
