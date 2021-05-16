@@ -31,7 +31,17 @@ en:
     messages:
       create_address_success: "Create delivery address successfully"
   order:
+    id: "Order ID"
+    created_at: "Purchase date"
     confirmation: "Order confirmation"
+    status: "Status"
+    my_orders: "My orders"
+    statuses:
+      canceled: "Cancel"
+      pending: "Pending"
+      approved: "Approved"
+      shipping: "Shipping"
+      finish: "Finish"
     attributes:
       note: "Note for this order"
     messages:

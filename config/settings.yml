@@ -10,4 +10,7 @@ product:
   img_max_size_cart: 50
 
 order:
+  per_page: 6
   shipping_cost_default: 40000
+
+date_format: "%m/%d/%Y %H:%M"

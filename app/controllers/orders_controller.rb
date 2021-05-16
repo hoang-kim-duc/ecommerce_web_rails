@@ -1,7 +1,14 @@
 class OrdersController < ApplicationController
   before_action :check_logged_in
-  before_action :load_products_from_cart, :check_user_chose_delivery_address
+  before_action :load_products_from_cart,
+                :check_user_chose_delivery_address, except: :index
   before_action :build_order, only: :create
+
+  def index
+    @orders = current_user.orders.newest_first
+                          .paginate page: params[:page],
+                                    per_page: Settings.order.per_page
+  end
 
   def new
     @shipping_cost = Settings.order.shipping_cost_default

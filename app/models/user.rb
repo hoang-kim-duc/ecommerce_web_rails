@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :delivery_addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
 
+  enum role: {customer: 0, admin: 1}
+
   has_secure_password
   validates :name, presence: true,
             length: {maximum: Settings.user.name_max_len}
