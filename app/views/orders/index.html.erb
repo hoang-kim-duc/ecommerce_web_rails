@@ -1,0 +1,23 @@
+<% provide :title, t("order.my_orders") %>
+
+<table class="table ">
+  <thead>
+    <tr>
+      <th scope="col"><%= t "order.created_at" %></th>
+      <th scope="col"><%= t "product.name" %></th>
+      <th scope="col"><%= t "cart.total" %></th>
+      <th scope="col"><%= t "order.status" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td class="align-middle"><%= link_to order.created_at.strftime(Settings.date_format), order %></td>
+        <td class="align-middle"><%= short_desc_products order %></td>
+        <td class="align-middle"><%= number_to_currency order.total %></td>
+        <td class="align-middle"><%= t "order.statuses.#{order.status}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div style="text-align: center;"><%= will_paginate @orders %></div>

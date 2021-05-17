@@ -31,7 +31,17 @@ vi:
     messages:
       create_address_success: "Tạo địa chỉ giao hàng thành công"
   order:
+    id: "Mã đơn hàng"
+    created_at: "Ngày mua"
     confirmation: "Xác nhận đặt hàng"
+    status: "Trạng thái"
+    my_orders: "Đơn hàng của tôi"
+    statuses:
+      canceled: "Đã huỷ"
+      pending: "Chờ xử lí"
+      approved: "Đang đóng gói"
+      shipping: "Đang vận chuyển"
+      finish: "Đã nhận hàng"
     attributes:
       note: "Ghi chú đơn hàng"
     messages:
