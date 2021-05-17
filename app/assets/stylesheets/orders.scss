@@ -1,0 +1,14 @@
+@import "variable";
+
+#trans_cell {
+  border:transparent!important;
+  background-color: $background!important;
+}
+
+#delivery_address_box {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  justify-content: flex-end;
+  margin: 1vw 0 1vw 0;
+}

@@ -1,9 +1,10 @@
 <div class="col-12 col-sm-6">
-  <h4></h4>
+  <h4><%= t "model.delivery_address" %></h4>
   <p><%= t "delivery_address.name" %>: <%= delivery_address.name %></p>
   <p><%= t "delivery_address.phone" %>: <%= delivery_address.phone %></p>
   <p><%= t "delivery_address.address" %>: <%= delivery_address.address %></p>
-  <button class="btn btn-info">
-    <%= link_to t("delivery_address.choose_this"), "#", style: "text-decoration: none; color: white;" %>
-  </button>
+  <%= form_for :cart, url: shipping_url do |f| %>
+    <div><%= hidden_field_tag :delivery_address_id, delivery_address.id %></div>
+    <%= f.submit t("delivery_address.choose_this"), class: "btn btn-info", style: "text-decoration: none; color: white;" %>
+  <% end %>
 </div>
