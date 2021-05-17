@@ -9,6 +9,7 @@ vi:
   edit: "Sửa"
   delete: "Xoá"
   add: "Thêm"
+  all: "Tất cả"
   will_paginate:
     previous_label: "&#8592; Quay lại"
     next_label: "Tiếp theo &#8594;"

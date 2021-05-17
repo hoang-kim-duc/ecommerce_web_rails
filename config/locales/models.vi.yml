@@ -36,6 +36,7 @@ vi:
     confirmation: "Xác nhận đặt hàng"
     status: "Trạng thái"
     my_orders: "Đơn hàng của tôi"
+    admin_orders: "Quản lí đơn hàng"
     statuses:
       canceled: "Đã huỷ"
       pending: "Chờ xử lí"

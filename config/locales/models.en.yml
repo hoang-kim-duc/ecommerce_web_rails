@@ -36,6 +36,7 @@ en:
     confirmation: "Order confirmation"
     status: "Status"
     my_orders: "My orders"
+    admin_orders: "Order Management"
     statuses:
       canceled: "Cancel"
       pending: "Pending"

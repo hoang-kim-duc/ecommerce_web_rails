@@ -27,7 +27,8 @@ Category.create!(
   father_id: nil
 )
 
-30.times do |n|
+@no_of_product = 30
+@no_of_product.times do |n|
   Product.create!(
     name: Faker::Device.unique.model_name,
     manufacturer: Faker::Device.manufacturer,
@@ -38,7 +39,7 @@ Category.create!(
   )
 end
 
-5.times do |n|
+30.times do |n|
   DeliveryAddress.create!(
     name: Faker::Name.unique.name,
     phone: Faker::PhoneNumber.phone_number,
@@ -47,3 +48,45 @@ end
   )
 end
 
+5.times do |n|
+  DeliveryAddress.create!(
+    name: Faker::Name.unique.name,
+    phone: Faker::PhoneNumber.phone_number,
+    address: Faker::Address.full_address,
+    user_id: 1
+  )
+end
+
+def fake_order_for_user user
+  order = Order.new(
+    status: Faker::Number.within(range: 0..4),
+    created_at: Faker::Time.between(from: DateTime.now - 100, to: DateTime.now),
+    delivery_address_id: user.delivery_addresses.sample.id,
+    user_id: user.id
+  )
+  total = 0
+  Faker::Number.within(range: 1..6).times do |n|
+    detail = order.order_details.build(
+      product_id: Faker::Number.within(range: 1..@no_of_product),
+      quantity: Faker::Number.within(range: 1..3),
+      price: Faker::Number.within(range: 10..30) * 1000000
+    )
+    total += detail.quantity * detail.price
+  end
+  order.shipping = Settings.order.shipping_cost_default
+  total += order.shipping
+  order.total = total
+  order.note = "note"
+  order.save
+end
+
+7.times do |n|
+  fake_order_for_user(User.find_by id: 1)
+end
+
+40.times do |n|
+  user = User.all.sample
+  next unless user.delivery_addresses.count > 0
+
+  fake_order_for_user user
+end

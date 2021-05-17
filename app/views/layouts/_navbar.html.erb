@@ -11,8 +11,11 @@
     <div class="collapse navbar-collapse" id="nav-bar-items">
       <ul class="nav navbar-nav">
         <li><%= link_to t(:products), "#" %></li>
-        <% if is_logged_in? %>
+        <% if current_user.customer? %>
           <li><%= link_to t("order.my_orders"), orders_path %>
+        <% end %>
+        <% if current_user.admin? %>
+          <li><%= link_to t("order.admin_orders"), admin_orders_path %>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">

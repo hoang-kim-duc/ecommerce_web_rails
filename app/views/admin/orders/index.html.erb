@@ -1,5 +1,9 @@
-<% provide :title, t("order.my_orders") %>
-
+<ul class="nav nav-tabs">
+  <li id="all" style="pointer: curser;"><%= link_to t(:all), admin_orders_path %></li>
+  <% Order.statuses.keys.each do |status| %>
+    <li id="<%= status %>" style="pointer: curser;"><%= link_to t("order.statuses.#{status}"), admin_orders_path(status: status) %></li>
+  <% end %>
+</ul>
 <table class="table ">
   <thead>
     <tr>
@@ -21,3 +25,6 @@
   </tbody>
 </table>
 <div style="text-align: center;"><%= will_paginate @orders %></div>
+<script>
+  $("#<%= @status %>").addClass("active")
+</script>

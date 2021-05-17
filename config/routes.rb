@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   resources :products
   resources :delivery_addresses, only: :create
   resources :orders, except: :new
+
+  namespace :admin do
+    resources :orders, only: :index
+  end
 end
