@@ -6,8 +6,11 @@ en:
     quantity: "Quantity"
     price: "Price"
     manufacturer: "Manufacturer"
+    left_quantity: "Quantity in Stock"
+    detail: "Product detail"
     errors:
       add_cart_error: "Unsuccessfully. Product with ID %{id} not exist"
+      not_exist: "Product is not exist"
   cart:
     amount: "Amount"
     price: "Unit price"

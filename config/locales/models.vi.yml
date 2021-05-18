@@ -6,8 +6,11 @@ vi:
     quantity: "Số lượng"
     price: "Giá"
     manufacturer: "Nhà sản xuất"
+    left_quantity: "Số lượng còn lại"
+    detail: "Chi tiết sản phẩm"
     errors:
       add_cart_error: "Không thành công. Sản phẩm ID %{id} không tồn tại"
+      not_exist: "Sản phẩm không tồn tại"
   cart:
     amount: "Tổng"
     price: "Giá"
