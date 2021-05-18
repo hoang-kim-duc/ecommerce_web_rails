@@ -1,4 +1,6 @@
 class AdminController < ApplicationController
+  include Admin::OrdersHelper
+
   before_action :require_admin
 
   private

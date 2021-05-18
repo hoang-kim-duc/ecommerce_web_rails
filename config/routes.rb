@@ -16,5 +16,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :orders, only: :index
+    post "/order_forward", to: "orders#forward"
+    post "/order_backward", to: "orders#backward"
+    post "/order_reject", to: "orders#reject"
+    post "/order_restore", to: "orders#restore_rejected_order"
   end
 end
