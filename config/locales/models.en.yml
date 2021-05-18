@@ -43,8 +43,15 @@ en:
       approved: "Approved"
       shipping: "Shipping"
       finish: "Finish"
+      rejected: "Rejected"
     attributes:
       note: "Note for this order"
     messages:
       have_not_choosen_address: "You have not choosen a delivery address. Pick beblow or create new one"
       create_success: "Create order successlly"
+      out_of_stock: "The product %{product} is out of stock"
+      not_exist: "Order is not exist"
+      not_for_forwarding: "Order's current status is not valid for forwarding"
+      not_for_backwarding: "Order's current status is not valid for backwarding"
+      not_for_rejecting: "Order's current status is not valid for rejecting"
+      not_for_restoring: "Order's current status is not valid for restoring"

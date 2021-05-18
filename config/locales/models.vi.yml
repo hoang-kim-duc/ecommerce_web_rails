@@ -43,8 +43,16 @@ vi:
       approved: "Đang đóng gói"
       shipping: "Đang vận chuyển"
       finish: "Đã nhận hàng"
+      rejected: "Đã từ chối"
     attributes:
       note: "Ghi chú đơn hàng"
     messages:
       have_not_choosen_address: "Bạn chưa chọn địa chỉ giao hàng. Chọn ở phía dưới hoặc tạo địa chỉ mới"
       create_success: "Bạn đã đặt hàng thành công"
+      out_of_stock: "Sản phẩm %{product_name} không còn đủ số lượng"
+      not_exist: "Đơn hàng không tồn tại"
+      not_for_forwarding: "Trạng thái của đơn hàng không phù hợp chuyển tới trạng thái tiếp theo"
+      not_for_backwarding: "Trạng thái của đơn hàng không phù hợp chuyển lui trạng thái trước đó"
+      not_for_rejecting: "Trạng thái của đơn hàng không phù hợp để từ chối đơn hàng"
+      not_for_restoring: "Đơn hàng đã đang được xử lí để giao tới khách hàng"
+

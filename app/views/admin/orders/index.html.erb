@@ -11,6 +11,9 @@
       <th scope="col" style="max-width: 30vw;"><%= t "product.name" %></th>
       <th scope="col"><%= t "cart.total" %></th>
       <th scope="col"><%= t "order.status" %></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +23,40 @@
         <td class="align-middle" style="max-width: 30vw;"><%= short_desc_products order %></td>
         <td class="align-middle"><%= number_to_currency order.total %></td>
         <td class="align-middle"><%= t "order.statuses.#{order.status}" %></td>
+        <td class="align-middle">
+          <% if is_order_valid_for_forwarding? order %>
+            <%= link_to admin_order_forward_path(order_id: order.id, status: @status), method: :post do %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+              </svg>
+            <% end %>
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% if is_order_valid_for_backwarding? order %>
+            <%= link_to admin_order_backward_path(order_id: order.id, status: @status), method: :post, data: {confirm: t(:are_you_sure)} do %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+              </svg>
+            <% end %>
+          <% end %>
+          <% if is_order_valid_for_rejecting? order %>
+            <%= link_to admin_order_reject_path(order_id: order.id, status: @status), method: :post, data: {confirm: t(:are_you_sure)} do %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+              </svg>
+            <% end %>
+          <% end %>
+          <% if is_order_valid_for_restoring? order %>
+            <%= link_to admin_order_restore_path(order_id: order.id, status: @status), method: :post, data: {confirm: t(:are_you_sure)} do %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+              </svg>
+            <% end %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

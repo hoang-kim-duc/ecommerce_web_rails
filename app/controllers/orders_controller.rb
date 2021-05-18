@@ -15,11 +15,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-    if @order.save
+    save_new_pending_order @order
+    if flash[:danger]
+      flash[:danger] << @order.errors.full_messages.join(", ")
+    else
       cart.clear
       flash[:success] = t "order.messages.create_success"
-    else
-      flash[:danger] = order.errors.full_messages
     end
     redirect_to root_path
   end
