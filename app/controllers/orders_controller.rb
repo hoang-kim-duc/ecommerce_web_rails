@@ -1,14 +1,19 @@
 class OrdersController < ApplicationController
   before_action :check_logged_in
   before_action :load_products_from_cart,
-                :check_user_chose_delivery_address, except: :index
+                :check_user_chose_delivery_address, only: %i(new create)
   before_action :build_order, only: :create
+  before_action :load_order, only: %i(show cancel)
+  before_action :check_order_own_or_admin, only: :show
+  before_action :check_order_own, :check_pending_order, only: :cancel
 
   def index
     @orders = current_user.orders.newest_first
                           .paginate page: params[:page],
                                     per_page: Settings.order.per_page
   end
+
+  def show; end
 
   def new
     @shipping_cost = Settings.order.shipping_cost_default
@@ -23,6 +28,14 @@ class OrdersController < ApplicationController
       flash[:success] = t "order.messages.create_success"
     end
     redirect_to root_path
+  end
+
+  def cancel
+    save_canceled_rejected_order :canceled, @order
+    respond_to do |format|
+      format.html{redirect_to @order}
+      format.js unless flash[:danger]
+    end
   end
 
   private
@@ -50,5 +63,33 @@ class OrdersController < ApplicationController
 
     session.delete :delivery_address_id
     redirect_to shipping_path
+  end
+
+  def load_order
+    @order = Order.find_by id: params[:id]
+    return if @order
+
+    flash[:danger] = t "order.messages.not_exist"
+    redirect_to orders_path
+  end
+
+  def check_order_own_or_admin
+    return if @order.user_id == session[:user_id] || current_user.admin?
+
+    flash[:danger] = t "order.messages.only_owner"
+  end
+
+  def check_order_own
+    return if @order.user_id == session[:user_id]
+
+    flash[:danger] = t "order.messages.only_owner"
+    redirect_to @orders
+  end
+
+  def check_pending_order
+    return if @order.pending?
+
+    flash[:danger] = t "order.messages.not_for_cancel"
+    redirect_to @order
   end
 end

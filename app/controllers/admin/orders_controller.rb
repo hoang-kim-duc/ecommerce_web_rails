@@ -32,7 +32,7 @@ class Admin::OrdersController < AdminController
   end
 
   def reject
-    if is_order_valid_for_rejecting? @orders
+    if is_order_valid_for_rejecting? @order
       save_canceled_rejected_order :rejected, @order
     else
       flash[:warning] = t "order.messages.not_for_rejecting"

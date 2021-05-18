@@ -37,6 +37,8 @@ vi:
     status: "Trạng thái"
     my_orders: "Đơn hàng của tôi"
     admin_orders: "Quản lí đơn hàng"
+    cancel_order: "Huỷ đơn hàng"
+    detail: "Chi tiết đơn hàng"
     statuses:
       canceled: "Đã huỷ"
       pending: "Chờ xử lí"
@@ -55,4 +57,5 @@ vi:
       not_for_backwarding: "Trạng thái của đơn hàng không phù hợp chuyển lui trạng thái trước đó"
       not_for_rejecting: "Trạng thái của đơn hàng không phù hợp để từ chối đơn hàng"
       not_for_restoring: "Đơn hàng đã đang được xử lí để giao tới khách hàng"
-
+      only_owner: "Chỉ người sở hữu mới có thể xem hoặc thực hiện thao tác lên đơn hàng"
+      not_for_cancel: "Bạn không thể huỷ đơn hàng đang được xử lí"
