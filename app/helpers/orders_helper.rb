@@ -40,4 +40,8 @@ module OrdersHelper
   rescue StandardError
     flash[:danger] = [t("errors.general")]
   end
+
+  def is_valid_for_canceling? order
+    order.pending? && order.user_id == session[:user_id]
+  end
 end

@@ -1,0 +1,14 @@
+<tr>
+  <td>
+    <%= link_to order_detail.product do %>
+      <%= image_tag "https://www.mageplaza.com/assets/img/extensions/product-labels.png",
+                    size: Settings.product.img_max_size_cart %>
+      <span><%= order_detail.product_name %></span>
+    <% end %>
+  </td>
+  <td class="align-middle"><%= order_detail.quantity %></td>
+  <td class="align-middle"><%= number_to_currency order_detail.price %></td>
+  <td class="align-middle">
+    <%= number_to_currency order_detail.quantity * order_detail.price %>
+  </td>
+</tr>

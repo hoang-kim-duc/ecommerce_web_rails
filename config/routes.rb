@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   end
   resources :products
   resources :delivery_addresses, only: :create
-  resources :orders, except: :new
+  resources :orders, except: :new do
+    member do
+      post "cancel", to: "orders#cancel"
+    end
+  end
 
   namespace :admin do
     resources :orders, only: :index
