@@ -10,9 +10,11 @@ en:
   delete: "Delete"
   add: "Add"
   all: "All"
+  other: "Other"
   are_you_sure: "Are you sure about performing this operation?"
   errors:
     general: "Some errors raised when perfomming action, please try again"
+    unavailable_url: "URL is unavailable"
   will_paginate:
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"

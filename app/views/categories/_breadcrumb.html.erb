@@ -1,0 +1,6 @@
+<ol class="breadcrumb">
+  <li><%= link_to t(:home), root_path %></li>
+  <% @ctg_ancestors.each do |category| %>
+    <li><%= link_to category.title, category_products_path(category_id: category.id) %></li>
+  <% end %>
+</ol>

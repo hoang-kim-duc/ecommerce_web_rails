@@ -25,4 +25,10 @@ Rails.application.routes.draw do
     post "/order_reject", to: "orders#reject"
     post "/order_restore", to: "orders#restore_rejected_order"
   end
+
+  resources :categories do
+    resources :products, only: :index do
+      get "other", to: "products#other_in_category", on: :collection
+    end
+  end
 end
