@@ -1,0 +1,28 @@
+<% provide :title, t("product.name") %>
+<div class="row">
+  <div class="col-12 col-md-9">
+    <div class="row">
+      <div class="col-12 col-md-6">
+          <img class="d-block w-100" src="https://www.mageplaza.com/assets/img/extensions/product-labels.png">
+      </div>
+      <div class="col-12 col-md-6 pl-3">
+        <h3 class="mt-4"><%= @product.name %></h3>
+        <small><%= t "product.left_quantity" %>: <%= @product.quantity %></small>
+        <p><%= t "product.price" %> <%= number_to_currency @product.price %></p>
+        <%= form_for :cart, url: add_to_cart_path, remote: true do |f| %>
+          <%= hidden_field_tag :product_id, @product.id %>
+          <div class="form-group">
+            <label class="mr-3 ml-3"><%= t "product.quantity" %>: </label>
+            <%= f.number_field :quantity, value: 1, in: 1..@product.quantity %>
+          </div>
+          <%= f.submit t("cart.add_to_cart"), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="p-4 col-12" id="descriptionArea">
+        <h3><%= t "product.detail" %></h3>
+        <%= @product.detail %>
+    </div>
+  </div>
+</div>
+<%= javascript_pack_tag "products_show", "data-turbolinks-track": "reload" %>
