@@ -8,6 +8,7 @@ en:
     manufacturer: "Manufacturer"
     left_quantity: "Quantity in Stock"
     detail: "Product detail"
+    price_limit: "Choose price range"
     errors:
       add_cart_error: "Unsuccessfully. Product with ID %{id} not exist"
       not_exist: "Product is not exist"

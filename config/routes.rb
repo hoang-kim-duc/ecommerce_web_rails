@@ -28,7 +28,10 @@ Rails.application.routes.draw do
 
   resources :categories do
     resources :products, only: :index do
-      get "other", to: "products#other_in_category", on: :collection
+      collection do
+        get "/other", to: "products#other_in_category"
+        get "/search", to: "products#search"
+      end
     end
   end
 end

@@ -11,6 +11,7 @@ vi:
   add: "Thêm"
   all: "Tất cả"
   other: "Khác"
+  search: "Tìm kiếm"
   are_you_sure: "Bạn có chắc muốn thực hiện thao tác này?"
   errors:
     general: "Có lỗi xảy ra trong quá trình thực hiện, vui lòng thử lại"

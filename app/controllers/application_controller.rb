@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include CartsHelper
   include OrdersHelper
+  include ProductsHelper
 
   around_action :switch_locale
 
