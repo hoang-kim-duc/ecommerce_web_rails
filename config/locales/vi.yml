@@ -10,9 +10,11 @@ vi:
   delete: "Xoá"
   add: "Thêm"
   all: "Tất cả"
+  other: "Khác"
   are_you_sure: "Bạn có chắc muốn thực hiện thao tác này?"
   errors:
     general: "Có lỗi xảy ra trong quá trình thực hiện, vui lòng thử lại"
+    unavailable_url: "Đường dẫn không hợp lệ"
   will_paginate:
     previous_label: "&#8592; Quay lại"
     next_label: "Tiếp theo &#8594;"

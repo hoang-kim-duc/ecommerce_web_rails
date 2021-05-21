@@ -22,20 +22,35 @@ User.create!(
   )
 end
 
-Category.create!(
-  title: "Demo",
-  father_id: nil
-)
+category_data = [
+  ["Điện thoại - Máy tính bảng", nil], ["Điện máy",nil],
+  ["Điện thoại thông minh", 1], ["Điện thoại phổ thông", 1], ["Máy tính bảng",1],
+  ["Tivi", 2], ["Tủ lạnh", 2], ["Máy giặt", 2], ["Máy lạnh", 2],
+  ["Điện thoại cao cấp", 3], ["Điện thoại tầm trung", 3], ["Điện thoại giá rẻ", 3],
+  ["Tivi OLED", 6], ["Tivi MICROLED", 6], ["Tivi LED", 6],
+  ["Tủ lạnh 50L", 7], ["Tủ lạnh 80L", 7], ["Tủ lạnh 135L", 7], ["Tủ lạnh 165L trở lên", 7],
+  ["Tủ lạnh 2 cửa", 19], ["Tủ lạnh 3 cửa", 19]
+]
 
-@no_of_product = 30
+category_data.each do |category|
+  Category.create!(
+    title: category[0],
+    father_id: category[1]
+  )
+end
+
+categories = Category.all
+
+@no_of_product = 100
 @no_of_product.times do |n|
+  category = categories[Faker::Number.within(range: 0..20)]
   Product.create!(
-    name: Faker::Device.unique.model_name,
+    name: "Product #{n} - #{category.title}",
     manufacturer: Faker::Device.manufacturer,
     detail: "Product #{n + 1} detail",
     quantity: Faker::Number.within(range: 5..20),
     price: Faker::Number.within(range: 10..30) * 1000000,
-    category_id: 1
+    category_id: category.id
   )
 end
 
