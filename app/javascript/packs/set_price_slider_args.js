@@ -9,3 +9,7 @@ $('#limit_price').ionRangeSlider({
   from: $('#slider_from').val(),
   to: $('#slider_to').val()
 });
+
+$('#sort').on('change', function() {
+  $("#display_option").submit();
+});

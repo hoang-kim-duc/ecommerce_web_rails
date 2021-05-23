@@ -9,6 +9,11 @@ vi:
     left_quantity: "Số lượng còn lại"
     detail: "Chi tiết sản phẩm"
     price_limit: "Chọn khoảng giá"
+    sort:
+      name_asc: Theo tên
+      newest: Mới nhất
+      price_asc: Giá tăng dần
+      price_desc: Giá giảm dần
     errors:
       add_cart_error: "Không thành công. Sản phẩm ID %{id} không tồn tại"
       not_exist: "Sản phẩm không tồn tại"
