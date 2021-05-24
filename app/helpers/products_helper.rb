@@ -12,7 +12,7 @@ module ProductsHelper
 
   def set_price_slider_arg
     @slider ||= {}
-    if @products.size.positive?
+    if @products.count.positive?
       @slider[:min] = @products.min_price
       @slider[:max] = @products.max_price
     else
