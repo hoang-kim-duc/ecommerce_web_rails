@@ -1,8 +1,22 @@
 vi:
   login: "Đăng nhập"
+  signup: "Đăng kí"
   logout: "Đăng xuất"
   password: "Mật khẩu"
+  password_confirmation: "Xác nhận mật khẩu"
   incorrect_email_password: "Mật khẩu hoặc email không đúng"
   account: "Tài khoản"
+  create_account: "Tạo tài khoản"
   profile: "Thông tin cá nhân"
+  activate: "Kích hoạt"
+  activate_account: "Kích hoạt tài khoản"
   have_to_login: "Bạn phải đăng nhập để thực hiện thao tác này"
+  messages:
+    signup_success: "Đăng kí tài khoản mới thành công"
+    email_check_for_activation: "Kiểm tra email để lấy link kích hoạt tài khoản"
+    errors_found: "Thông tin không hợp lệ"
+    account_activated: "Tài khoản của bạn đã được kích hoạt thành công"
+    invalid_activation_link: "Link kích hoạt tài khoản không hợp lệ"
+    not_activated: "Tài khoản của bạn chưa được kích hoạt"
+  mails:
+    activate_email_body: "Chào mừng đến với website của chúng tôi, click bên dưới để kích hoạt tài khoản"

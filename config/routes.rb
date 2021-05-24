@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root "static_pages#home"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
+  get "/signup", to: "users#new"
+  resources :users, except: :new do
+    get "activate", to: "users#activate_user" , on: :collection
+  end
   delete "/logout", to: "sessions#destroy"
   post "/add_to_cart", to: "carts#add_to_cart"
   scope "/checkout" do

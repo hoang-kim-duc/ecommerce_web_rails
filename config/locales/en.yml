@@ -1,5 +1,6 @@
 en:
   log_in: "Log in"
+  sign_up: "Sign up"
   products: "Products"
   en: "English"
   vi: "Vietnamese"
@@ -12,6 +13,7 @@ en:
   all: "All"
   other: "Other"
   search: "Search"
+  hi: "Hi"
   are_you_sure: "Are you sure about performing this operation?"
   errors:
     general: "Some errors raised when perfomming action, please try again"

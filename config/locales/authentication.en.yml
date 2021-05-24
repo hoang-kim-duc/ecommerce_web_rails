@@ -1,8 +1,22 @@
 en:
   login: "Login"
+  signup: "Signup"
   logout: "Logout"
   password: "Password"
+  password_confirmation: "Password confirmation"
   incorrect_email_password: "Invalid email/password combination"
   account: "Account"
+  create_account: "Create new account"
   profile: "Profile"
   have_to_login: "You have to log in to perform this action"
+  activate: "Activate"
+  activate_account: "Activate your account"
+  messages:
+    signup_success: "Create new account successfully"
+    email_check_for_activation: "Check your email for activation url address"
+    errors_found: "Errors found"
+    account_activated: "Your account is activated successfully"
+    invalid_activation_link: "Activation link is not valid"
+    not_activated: "Your account is not activated"
+  mails:
+    activate_email_body: "Welcome to the Rails eCommerce! Click on the link below to activate your account:"
