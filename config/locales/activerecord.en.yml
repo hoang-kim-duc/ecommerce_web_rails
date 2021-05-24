@@ -1,0 +1,18 @@
+vi:
+  activerecord:
+    attributes:
+      user:
+        name: "Name"
+        password: "Password"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "cannot be empty"
+            password:
+              blank: "cannot be empty"
+            email:
+              blank: "cannot be empty"
+              invalid: "is not valid"
+              taken: "is taken by another user"

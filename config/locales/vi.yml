@@ -1,5 +1,6 @@
 vi:
   log_in: "Đăng nhập"
+  sign_up: "Đăng kí"
   products: "Sản phẩm"
   en: "Tiếng Anh"
   vi: "Tiếng Việt"
@@ -12,6 +13,7 @@ vi:
   all: "Tất cả"
   other: "Khác"
   search: "Tìm kiếm"
+  hi: "Chào"
   are_you_sure: "Bạn có chắc muốn thực hiện thao tác này?"
   errors:
     general: "Có lỗi xảy ra trong quá trình thực hiện, vui lòng thử lại"

@@ -1,3 +1,5 @@
+app_name: Rails eCommerce
+
 user:
   name_max_len: 50
   pwd_min_len: 6

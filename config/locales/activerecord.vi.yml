@@ -1,0 +1,18 @@
+vi:
+  activerecord:
+    attributes:
+      user:
+        name: "Tên"
+        password: "Mật khẩu"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "không được để trống"
+            password:
+              blank: "không được để trống"
+            email:
+              blank: "không được để trống"
+              invalid: "không hợp lệ"
+              taken: "đã được sử dụng"
