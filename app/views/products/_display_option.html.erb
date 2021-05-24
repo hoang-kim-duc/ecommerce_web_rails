@@ -1,0 +1,19 @@
+<%= form_tag request.fullpath, class: "navbar-form", method: :get, style: "text-align:center;" do %>
+  <%= hidden_field_tag :slider_min, @slider[:min] %>
+  <%= hidden_field_tag :slider_max, @slider[:max] %>
+  <%= hidden_field_tag :slider_from, slider_from %>
+  <%= hidden_field_tag :slider_to, slider_to %>
+  <div class="form-group">
+    <%= text_field_tag "keyword", params[:keyword] || nil, placeholder: t(:search), class: "form-control", style: "width: 35vw;" %>
+    <%= button_tag :submit, class: "btn btn-default", name: nil do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg>
+    <% end %>
+  </div>
+  <hr>
+  <p style="text-align:left"><%= t "product.price_limit" %>:</p>
+  <div id="slider" style="width: 100%"><%= text_field_tag :limit_price,nil %></div>
+  <hr>
+<% end %>
+<%= javascript_pack_tag "set_price_slider_args", "data-turbolinks-track": "reload" %>

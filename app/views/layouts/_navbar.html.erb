@@ -10,7 +10,6 @@
     </div>
     <div class="collapse navbar-collapse" id="nav-bar-items">
       <ul class="nav navbar-nav">
-        <li><%= link_to t(:products), "#" %></li>
         <% if current_user&.customer? %>
           <li><%= link_to t("order.my_orders"), orders_path %>
         <% end %>

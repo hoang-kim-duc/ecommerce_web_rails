@@ -6,9 +6,7 @@ class ProductsController < ApplicationController
     @categories = @category.children
     @ctg_ancestors = @category.ancestors
     @products = @category.all_product_from_descendants
-                         .asc_by_name
-                         .paginate page: params[:page],
-                                   per_page: Settings.product.per_page
+    apply_filter_and_paging_on_products
   end
 
   def show; end
@@ -16,8 +14,8 @@ class ProductsController < ApplicationController
   def other_in_category
     @ctg_ancestors = @category.ancestors << Category.new(title: t(:other),
                                                          id: @category.id)
-    @products = @category.products.paginate page: params[:page],
-                                            per_page: Settings.product.per_page
+    @products = @category.products
+    apply_filter_and_paging_on_products
   end
 
   private

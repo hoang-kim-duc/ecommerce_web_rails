@@ -11,6 +11,7 @@ en:
   add: "Add"
   all: "All"
   other: "Other"
+  search: "Search"
   are_you_sure: "Are you sure about performing this operation?"
   errors:
     general: "Some errors raised when perfomming action, please try again"
