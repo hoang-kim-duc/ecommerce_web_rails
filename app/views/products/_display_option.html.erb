@@ -1,4 +1,4 @@
-<%= form_tag request.fullpath, class: "navbar-form", method: :get, style: "text-align:center;" do %>
+<%= form_tag request.fullpath, id: "display_option", class: "navbar-form", method: :get, style: "text-align:center;" do %>
   <%= hidden_field_tag :slider_min, @slider[:min] %>
   <%= hidden_field_tag :slider_max, @slider[:max] %>
   <%= hidden_field_tag :slider_from, slider_from %>
@@ -15,5 +15,7 @@
   <p style="text-align:left"><%= t "product.price_limit" %>:</p>
   <div id="slider" style="width: 100%"><%= text_field_tag :limit_price,nil %></div>
   <hr>
+  <div style="text-align:right;"><%= select_tag :sort, sort_option_tags.html_safe %></div>
+  
 <% end %>
 <%= javascript_pack_tag "set_price_slider_args", "data-turbolinks-track": "reload" %>
