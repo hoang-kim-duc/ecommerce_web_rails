@@ -68,3 +68,12 @@ en:
       not_for_restoring: "Order's current status is not valid for restoring"
       only_owner: "Only order's owner can view and perform action on it"
       not_for_cancel: "You cannot cancel an approved order"
+    mails:
+      status_pending: "You have placed an order on Rails eCommerce"
+      status_approved: "Your order is approved and being processing by Rails eCommerce"
+      status_shipping: "Your order is ready for shipping"
+      status_finish: "Your order is finished. Thanks you for buying"
+      status_canceled: "Your order is canceled"
+      status_rejected: "Your order is rejected. Sorry for the inconvenience"
+      view_order: "View order on website"
+      your_order_changed_status: "Your order's status is changed to"

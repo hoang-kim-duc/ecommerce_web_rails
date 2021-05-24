@@ -1,0 +1,44 @@
+<h3><%= t "order.created_at" %>: <%= @order.created_at.strftime(Settings.date_format) %></h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t "product.name" %></th>
+      <th scope="col"><%= t "product.quantity" %></th>
+      <th scope="col"><%= t "cart.price" %></th>
+      <th scope="col"><%= t "cart.amount" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @order.order_details %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><%= t "cart.subtotal" %></td>
+      <td><%= number_to_currency @order.total - @order.shipping %></td>
+    </tr>
+    <tr>
+      <td id="trans_cell"></td>
+      <td id="trans_cell"></td>
+      <td><%= t "cart.shipping_cost" %></td>
+      <td><%= number_to_currency @order.shipping %></td>
+    </tr>
+    <tr>
+      <td id="trans_cell"></td>
+      <td id="trans_cell"></td>
+      <td><%= t "cart.total" %></td>
+      <td><b><%= number_to_currency @order.total %></b></td>
+    </tr>
+  </tbody>
+</table>
+<div id="delivery_address_box">
+  <div>
+    <h4><%= t "model.delivery_address" %></h4>
+    <p><%= t "delivery_address.name" %>: <%= @order.delivery_address_name %></p>
+    <p><%= t "delivery_address.phone" %>: <%= @order.delivery_address_phone %></p>
+    <p><%= t "delivery_address.address" %>: <%= @order.delivery_address_address %></p>
+    <p style="font-size:1.2em;"><b><%= t "order.attributes.note" %>:</b> <%= @order.note %></p>
+    <p style="font-size:1.2em;"><b><%= t "order.status" %></b>:
+      <span id="order_status"><%= t "order.statuses.#{@order.status}" %></span>
+    </p>
+  </div>
+</div>

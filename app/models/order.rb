@@ -10,4 +10,5 @@ class Order < ApplicationRecord
   scope :status, ->(status){where status: status}
 
   delegate :name, :phone, :address, to: :delivery_address, prefix: true
+  delegate :email, to: :user, prefix: true
 end
