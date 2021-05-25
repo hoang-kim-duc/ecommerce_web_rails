@@ -68,3 +68,12 @@ vi:
       not_for_restoring: "Đơn hàng đã đang được xử lí để giao tới khách hàng"
       only_owner: "Chỉ người sở hữu mới có thể xem hoặc thực hiện thao tác lên đơn hàng"
       not_for_cancel: "Bạn không thể huỷ đơn hàng đang được xử lí"
+    mails:
+      status_pending: "Bạn đã đặt hàng thành công"
+      status_approved: "Đơn hàng của bạn đã được chấp thuận và đang được xử lí bởi Rails eCommerce"
+      status_shipping: "Đơn hàng của bạn đã sẵn sàng và sẽ được giao tới bạn sớm"
+      status_finish: "Đơn hàng của bạn đã được giao thành công. Cảm ơn bạn đã mua sắm"
+      status_canceled: "Đơn hàng của bạn đã được huỷ"
+      status_rejected: "Đơn hàng của bạn bị từ chối. Xin lỗi vì sự bất tiện này"
+      view_order: "Xem đơn hàng của bạn trên website"
+      your_order_changed_status: "Trạng thái đơn hàng của bạn đã được thay đổi thành"

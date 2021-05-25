@@ -15,6 +15,7 @@ module OrdersHelper
         product.update! quantity: product.quantity + details.quantity
       end
     end
+    OrderMailer.changing_order_status(order).deliver_later
   rescue StandardError
     flash[:danger] = t "errors.general"
   end

@@ -68,6 +68,7 @@ class Admin::OrdersController < AdminController
     when "shipping"
       order.finish!
     end
+    OrderMailer.changing_order_status(order).deliver_later
   rescue StandardError
     flash[:danger] = t("errors.general")
   end

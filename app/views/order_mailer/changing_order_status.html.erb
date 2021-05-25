@@ -1,0 +1,3 @@
+<h2><%= t "order.mails.your_order_changed_status" %> <%= t "order.statuses.#{@order.status}" %></h2>
+<%= render @order %>
+<%= link_to t("order.mails.view_order"), @order %>

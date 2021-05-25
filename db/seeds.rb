@@ -1,9 +1,9 @@
 User.create!(
   name: "Sample User",
-  email: "test-user@gmail.com",
+  email: "admin@gmail.com",
   password: "123456",
   password_confirmation: "123456",
-  role: 1,
+  role: User.roles[:admin],
   activated: true,
   activated_at: Time.zone.now
 )
