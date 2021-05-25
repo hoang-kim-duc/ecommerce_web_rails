@@ -26,6 +26,12 @@ group :development, :test do
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "rubocop-rails", "~> 2.3.2", require: false
+  gem "simplecov-rcov"
+  gem "simplecov"
+  gem "rails-controller-testing"
+  gem "factory_bot"
+  gem "database_cleaner-active_record"
+  gem "shoulda-matchers", "~> 4.0"
 end
 
 group :development do

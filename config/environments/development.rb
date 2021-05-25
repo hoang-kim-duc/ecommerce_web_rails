@@ -1,4 +1,7 @@
 require "active_support/core_ext/integer/time"
+require 'database_cleaner/active_record'
+
+DatabaseCleaner.strategy = :truncation
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
