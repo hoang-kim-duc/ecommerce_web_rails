@@ -6,6 +6,9 @@ class Order < ApplicationRecord
   enum status: {pending: 0, approved: 1, shipping: 2, finish: 3,
                 canceled: 4, rejected: 6}
 
+  validates :total, allow_nil: true,
+                    numericality: {only_integer: true, greater_than: 0}
+
   scope :newest_first, ->{order created_at: :desc}
   scope :status, ->(status){where status: status}
 
