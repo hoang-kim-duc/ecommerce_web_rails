@@ -77,13 +77,14 @@ class OrdersController < ApplicationController
     return if @order.user_id == session[:user_id] || current_user.admin?
 
     flash[:danger] = t "order.messages.only_owner"
+    redirect_to root_path
   end
 
   def check_order_own
     return if @order.user_id == session[:user_id]
 
     flash[:danger] = t "order.messages.only_owner"
-    redirect_to @orders
+    redirect_to orders_path
   end
 
   def check_pending_order

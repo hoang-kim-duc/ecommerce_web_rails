@@ -4,7 +4,7 @@ include SessionsHelper
 include CartsHelper
 
 RSpec.describe CartsController, type: :controller do
-  describe "show" do
+  describe "#show" do
     context "when user is not logged in" do
       before do
         log_out
@@ -24,7 +24,7 @@ RSpec.describe CartsController, type: :controller do
     end
   end
 
-  describe "add_to_cart" do
+  describe "#add_to_cart" do
     before do
       log_in create(:customer)
       @product = create :product
