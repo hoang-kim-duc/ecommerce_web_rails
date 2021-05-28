@@ -106,3 +106,21 @@ end
 SimpleCov.formatter = SimpleCov::Formatter::MergedFormatter
 
 SimpleCov.start "rails"
+
+def add_to_cart user = create(:customer), product = create(:product),
+  quantity = Faker::Number.within(range: 1..5)
+  session["cart_#{user.id}"] ||= {}
+  session["cart_#{user.id}"][product.id] = quantity
+end
+
+def fake_cart user = create(:customer), products_with_quantity = []
+  if products_with_quantity.size == 0
+    Faker::Number.within(range: 1..5).times do
+    products_with_quantity << [create(:product), Faker::Number.within(range: 1..5)]
+    end
+  end
+  products_with_quantity.each do |pair|
+    add_to_cart user, pair[0], pair[1]
+  end
+  session["cart_#{user.id}"]
+end
