@@ -2,6 +2,10 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :order_details, dependent: :destroy
 
+  validates :name, presence: true
+  validates :price, numericality: {only_integer: true, greater_than: 0}
+  validates :quantity, numericality: {only_integer: true, greater_than: 0}
+
   scope :name_asc, ->{order :name}
   scope :newest, ->{order created_at: :desc}
   scope :price_asc, ->{order :price}

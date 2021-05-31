@@ -1,10 +1,10 @@
 app_name: Rails eCommerce
 
 user:
-  name_max_len: 50
+  name_max_len: 100
   pwd_min_len: 6
   email_max_len: 100
-  phone_max_len: 40
+  phone_max_len: 20
  
 product:
   img_max_size: 200
