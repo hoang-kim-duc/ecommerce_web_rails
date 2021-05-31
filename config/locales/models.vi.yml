@@ -39,6 +39,7 @@ vi:
     add_address: "Thêm địa chỉ"
     messages:
       create_address_success: "Tạo địa chỉ giao hàng thành công"
+      not_exist: "Địa chỉ giao hàng không tồn tại"
   order:
     id: "Mã đơn hàng"
     created_at: "Ngày mua"

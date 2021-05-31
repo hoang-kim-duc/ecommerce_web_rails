@@ -1,5 +1,6 @@
 class DeliveryAddressesController < ApplicationController
   before_action :check_logged_in
+  before_action :load_delivery_address, only: :save_choice
 
   def show; end
 
@@ -25,5 +26,13 @@ class DeliveryAddressesController < ApplicationController
 
   def address_params
     params.require(:delivery_address).permit(:name, :phone, :address)
+  end
+
+  def load_delivery_address
+    @delivery_address = DeliveryAddress.find_by id: params[:delivery_address_id]
+    return if @delivery_address
+
+    flash[:danger] = t "delivery_address.messages.not_exist"
+    redirect_to shipping_path
   end
 end
