@@ -39,6 +39,7 @@ en:
     add_address: "Add address"
     messages:
       create_address_success: "Create delivery address successfully"
+      not_exist: "Delivery address is not exist"
   order:
     id: "Order ID"
     created_at: "Purchase date"
