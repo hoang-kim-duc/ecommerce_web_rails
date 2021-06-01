@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   root "static_pages#home"
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-  get "/signup", to: "users#new"
+  devise_for :users, path: "", path_names: {
+    sign_in: "/login",
+    sign_out: "/logout",
+    password: "secret",
+    confirmation: "verification",
+    registration: "register"
+  }
   resources :users, except: :new do
     get "activate", to: "users#activate_user" , on: :collection
   end

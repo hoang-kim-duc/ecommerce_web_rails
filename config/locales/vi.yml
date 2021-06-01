@@ -1,6 +1,8 @@
 vi:
   log_in: "Đăng nhập"
   sign_up: "Đăng kí"
+  forgot_password: "Quên mật khẩu"
+  change_password: "Đổi mật khẩu"
   products: "Sản phẩm"
   en: "Tiếng Anh"
   vi: "Tiếng Việt"

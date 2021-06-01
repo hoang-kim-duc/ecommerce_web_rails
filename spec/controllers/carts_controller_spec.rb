@@ -1,23 +1,21 @@
 require 'rails_helper'
 include ApplicationHelper
-include SessionsHelper
 include CartsHelper
 
 RSpec.describe CartsController, type: :controller do
   describe "#show" do
     context "when user is not logged in" do
       before do
-        log_out
         get :show
       end
 
-      it {should set_flash[:warning].to(I18n.t :have_to_login)}
-      it {should redirect_to(root_path)}
+      it {should set_flash[:alert].to(I18n.t "devise.failure.unauthenticated")}
+      it {should redirect_to(new_user_session_path)}
     end
 
     context "when user logged in" do
       it "render cart" do
-        log_in create(:customer)
+        sign_in create(:customer)
         get :show
         expect(response).to render_template :show
       end
@@ -26,7 +24,7 @@ RSpec.describe CartsController, type: :controller do
 
   describe "#add_to_cart" do
     before do
-      log_in create(:customer)
+      sign_in create(:customer)
       @product = create :product
     end
 

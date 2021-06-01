@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :check_logged_in
+  before_action :authenticate_user!
   before_action :load_products_from_cart,
                 :check_user_chose_delivery_address, only: %i(new create)
   before_action :build_order, only: :create
@@ -58,7 +58,7 @@ class OrdersController < ApplicationController
     return redirect_to shipping_path unless id
 
     @delivery_address = DeliveryAddress.find_by id: id,
-                                                user_id: session[:user_id]
+                                                user_id: current_user.id
     return if @delivery_address
 
     session.delete :delivery_address_id
@@ -74,14 +74,14 @@ class OrdersController < ApplicationController
   end
 
   def check_order_own_or_admin
-    return if @order.user_id == session[:user_id] || current_user.admin?
+    return if @order.user == current_user || current_user.admin?
 
     flash[:danger] = t "order.messages.only_owner"
     redirect_to root_path
   end
 
   def check_order_own
-    return if @order.user_id == session[:user_id]
+    return if @order.user == current_user
 
     flash[:danger] = t "order.messages.only_owner"
     redirect_to orders_path

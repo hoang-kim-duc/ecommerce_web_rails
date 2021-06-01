@@ -7,6 +7,9 @@ FactoryBot.define do
     role {User.roles[:customer]}
     activated {true}
     activated_at {Time.zone.now}
+    after :create do |user|
+      user.confirm
+    end
   end
 
   factory :admin, class: "User" do
@@ -17,5 +20,8 @@ FactoryBot.define do
     role {User.roles[:admin]}
     activated {true}
     activated_at {Time.zone.now}
+    after :create do |user|
+      user.confirm
+    end
   end
 end

@@ -6,7 +6,7 @@ User.create!(
   role: User.roles[:admin],
   activated: true,
   activated_at: Time.zone.now
-)
+).confirm
 
 30.times do |n|
   name = Faker::Name.name
@@ -19,7 +19,7 @@ User.create!(
     password_confirmation: password,
     activated: true,
     activated_at: Time.zone.now
-  )
+  ).confirm
 end
 
 category_data = [

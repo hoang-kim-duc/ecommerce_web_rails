@@ -1,4 +1,6 @@
 module ApplicationHelper
+  FLASH_MAP = {notice: :info, alert: :warning}.freeze
+
   def full_title page_title = ""
     base_title = "Rails eCommerce"
     if page_title.blank?
@@ -8,10 +10,9 @@ module ApplicationHelper
     end
   end
 
-  def check_logged_in
-    return if is_logged_in?
+  def mapping_alert_type flash_key
+    return FLASH_MAP[flash_key.to_sym] if FLASH_MAP[flash_key.to_sym]
 
-    flash[:warning] = t :have_to_login
-    redirect_to root_path
+    flash_key
   end
 end

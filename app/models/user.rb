@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable, :confirmable,
+         :recoverable, :rememberable, :validatable
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
 
   has_many :delivery_addresses, dependent: :destroy
@@ -7,7 +11,7 @@ class User < ApplicationRecord
   enum role: {customer: 0, admin: 1}
 
   attr_accessor :activation_token
-  has_secure_password
+
   validates :name, presence: true,
             length: {maximum: Settings.user.name_max_len}
   validates :password, presence: true,

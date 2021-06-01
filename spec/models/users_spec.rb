@@ -5,7 +5,6 @@ RSpec.describe User, type: :model do
   end
 
   describe "validations" do
-    it {should have_secure_password}
     it {should validate_presence_of(:name)}
     it {should validate_length_of(:name).is_at_most(Settings.user
                                                             .name_max_len)}

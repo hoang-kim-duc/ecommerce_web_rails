@@ -1,9 +1,8 @@
 require "rails_helper"
-include SessionsHelper
 
 RSpec.describe DeliveryAddressesController, type: :controller do
   let!(:user){create :customer}
-  before {log_in user}
+  before {sign_in user}
 
   describe "#show" do
     before {get :show}
@@ -53,7 +52,7 @@ RSpec.describe DeliveryAddressesController, type: :controller do
       let!(:delivery_address){create :delivery_address}
       before {post :save_choice, params: {delivery_address_id: delivery_address.id}}
 
-      it {should set_session[:delivery_address_id].to(delivery_address.id)}
+      it {should set_session[:delivery_address_id].to(delivery_address.id.to_s)}
       it {should redirect_to(confirmation_url)}
     end
   end

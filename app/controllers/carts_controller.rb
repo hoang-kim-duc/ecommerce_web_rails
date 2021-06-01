@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   before_action :check_nil_product, only: :add_to_cart
-  before_action :check_logged_in
+  before_action :authenticate_user!
   before_action :load_products_from_cart, only: :show
 
   def add_to_cart
