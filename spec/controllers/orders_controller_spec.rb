@@ -1,5 +1,4 @@
 require 'rails_helper'
-include SessionsHelper
 
 RSpec.describe OrdersController, type: :controller do
   let!(:user){create :customer}
@@ -8,16 +7,15 @@ RSpec.describe OrdersController, type: :controller do
   describe "#index" do
     context "user is not logged in" do
       before do
-        log_out
         get :index
       end
 
-      it {should set_flash[:warning].to(I18n.t :have_to_login)}
-      it {should redirect_to(root_path)}
+      it {should set_flash[:alert].to(I18n.t "devise.failure.unauthenticated")}
+      it {should redirect_to(new_user_session_path)}
     end
 
     it "render orders when user logged in" do
-      log_in create(:customer)
+      sign_in create(:customer)
       get :index
       expect(response).to render_template :index
     end
@@ -28,7 +26,7 @@ RSpec.describe OrdersController, type: :controller do
 
     context "order is not exist" do
       before do
-        log_in user
+        sign_in user
         post :cancel, params: {id: -1}
       end
 
@@ -39,7 +37,7 @@ RSpec.describe OrdersController, type: :controller do
     context "user is not permitted" do
       before do |test|
         other_user = create(:customer)
-        log_in other_user
+        sign_in other_user
         get :show, params: {id: order.id}
       end
 
@@ -49,7 +47,7 @@ RSpec.describe OrdersController, type: :controller do
 
     context "user is permitted" do
       before do |test|
-        log_in user
+        sign_in user
         get :show, params: {id: order.id}
       end
 
@@ -59,7 +57,7 @@ RSpec.describe OrdersController, type: :controller do
 
   describe "#create" do
     before do
-      log_in user
+      sign_in user
       fake_cart user
     end
 
@@ -98,7 +96,7 @@ RSpec.describe OrdersController, type: :controller do
     context "when user is not owner" do
       before do
         other_user = create(:customer)
-        log_in other_user
+        sign_in other_user
         post :cancel, params: {id: order.id}
       end
 
@@ -108,7 +106,7 @@ RSpec.describe OrdersController, type: :controller do
 
     context "order is not pending" do
       before do
-        log_in user
+        sign_in user
         order.approved!
         post :cancel, params: {id: order.id}
       end
@@ -119,7 +117,7 @@ RSpec.describe OrdersController, type: :controller do
 
     context "when user is owner and order is pending" do
       before do
-        log_in user
+        sign_in user
         post :cancel, params: {id: order.id}
       end
 
@@ -130,7 +128,7 @@ RSpec.describe OrdersController, type: :controller do
   describe "new" do
     before do
       session[:delivery_address_id] = delivery_address.id
-      log_in user
+      sign_in user
       get :new
     end
 

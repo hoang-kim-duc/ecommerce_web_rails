@@ -1,5 +1,4 @@
 require "rails_helper"
-include SessionsHelper
 
 RSpec.shared_examples "invalid action on order" do |action, status|
   let!(:order){create :order, status: Order.statuses[status]}
@@ -33,14 +32,14 @@ end
 
 RSpec.describe Admin::OrdersController, type: :controller do
   let!(:admin){create :admin}
-  before {log_in admin}
+  before {sign_in admin}
 
   describe "#index" do
     context "not logged in as admin" do
       let!(:user){create :customer}
 
       before do
-        log_in user
+        sign_in user
         get :index
       end
 
@@ -48,10 +47,8 @@ RSpec.describe Admin::OrdersController, type: :controller do
     end
 
     context "logged in as admin" do
-      let!(:admin){create :admin}
 
       before do
-        log_in admin
         get :index
       end
 

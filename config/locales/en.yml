@@ -1,6 +1,8 @@
 en:
   log_in: "Log in"
   sign_up: "Sign up"
+  forgot_password: "Forgot password"
+  change_password: "Change password"
   products: "Products"
   en: "English"
   vi: "Vietnamese"

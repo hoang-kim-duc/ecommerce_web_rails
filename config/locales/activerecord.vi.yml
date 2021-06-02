@@ -4,6 +4,9 @@ vi:
       user:
         name: "Tên"
         password: "Mật khẩu"
+        new_password: "Mật khẩu mới"
+        remember_me: "Ghi nhớ đăng nhập"
+        password_confirmation: "Xác nhận mật khẩu"
     errors:
       models:
         user:

@@ -1,5 +1,5 @@
 class DeliveryAddressesController < ApplicationController
-  before_action :check_logged_in
+  before_action :authenticate_user!
   before_action :load_delivery_address, only: :save_choice
 
   def show; end
@@ -19,6 +19,7 @@ class DeliveryAddressesController < ApplicationController
 
   def save_choice
     session[:delivery_address_id] = params[:delivery_address_id]
+
     redirect_to confirmation_url
   end
 

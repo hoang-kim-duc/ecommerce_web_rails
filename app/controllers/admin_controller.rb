@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
   include Admin::OrdersHelper
 
-  before_action :require_admin
+  before_action :authenticate_user!, :require_admin
 
   private
 
