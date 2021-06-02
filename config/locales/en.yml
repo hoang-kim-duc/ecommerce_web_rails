@@ -16,6 +16,7 @@ en:
   other: "Other"
   search: "Search"
   hi: "Hi"
+  access_denied: "You are not authorized to access the url"
   are_you_sure: "Are you sure about performing this operation?"
   errors:
     general: "Some errors raised when perfomming action, please try again"

@@ -7,7 +7,14 @@ class ApplicationController < ActionController::Base
   around_action :switch_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from CanCan::AccessDenied, with: :access_denied
+
   private
+
+  def access_denied
+    flash[:danger] = t :access_denied
+    redirect_to root_path
+  end
 
   def switch_locale &action
     locale = params[:locale] || I18n.default_locale

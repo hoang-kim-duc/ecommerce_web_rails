@@ -4,8 +4,8 @@ class OrdersController < ApplicationController
                 :check_user_chose_delivery_address, only: %i(new create)
   before_action :build_order, only: :create
   before_action :load_order, only: %i(show cancel)
-  before_action :check_order_own_or_admin, only: :show
-  before_action :check_order_own, :check_pending_order, only: :cancel
+  authorize_resource except: [:new, :create]
+  before_action :check_pending_order, only: :cancel
 
   def index
     @orders = current_user.orders.newest_first
@@ -66,24 +66,11 @@ class OrdersController < ApplicationController
   end
 
   def load_order
+    authorize! :read, Order
     @order = Order.find_by id: params[:id]
     return if @order
 
     flash[:danger] = t "order.messages.not_exist"
-    redirect_to orders_path
-  end
-
-  def check_order_own_or_admin
-    return if @order.user == current_user || current_user.admin?
-
-    flash[:danger] = t "order.messages.only_owner"
-    redirect_to root_path
-  end
-
-  def check_order_own
-    return if @order.user == current_user
-
-    flash[:danger] = t "order.messages.only_owner"
     redirect_to orders_path
   end
 
