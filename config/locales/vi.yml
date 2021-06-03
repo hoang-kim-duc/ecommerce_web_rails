@@ -16,6 +16,7 @@ vi:
   other: "Khác"
   search: "Tìm kiếm"
   hi: "Chào"
+  access_denied: "Bạn không được phép truy cập đường dẫn này"
   are_you_sure: "Bạn có chắc muốn thực hiện thao tác này?"
   errors:
     general: "Có lỗi xảy ra trong quá trình thực hiện, vui lòng thử lại"

@@ -43,6 +43,6 @@ module OrdersHelper
   end
 
   def is_valid_for_canceling? order
-    order.pending? && order.user_id == session[:user_id]
+    order.pending? && order.user_id == current_user.id
   end
 end

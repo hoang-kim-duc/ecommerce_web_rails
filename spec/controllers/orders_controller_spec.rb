@@ -27,7 +27,7 @@ RSpec.describe OrdersController, type: :controller do
     context "order is not exist" do
       before do
         sign_in user
-        post :cancel, params: {id: -1}
+        post :show, params: {id: -1}
       end
 
       it {should redirect_to(orders_path)}
@@ -41,8 +41,8 @@ RSpec.describe OrdersController, type: :controller do
         get :show, params: {id: order.id}
       end
 
+      it {should set_flash[:danger].to(I18n.t "access_denied")}
       it {should redirect_to(root_path)}
-      it {should set_flash[:danger].to(I18n.t "order.messages.only_owner")}
     end
 
     context "user is permitted" do
@@ -100,8 +100,8 @@ RSpec.describe OrdersController, type: :controller do
         post :cancel, params: {id: order.id}
       end
 
-      it {should redirect_to(orders_path)}
-      it {should set_flash[:danger].to(I18n.t "order.messages.only_owner")}
+      it {should set_flash[:danger].to(I18n.t "access_denied")}
+      it {should redirect_to(root_path)}
     end
 
     context "order is not pending" do

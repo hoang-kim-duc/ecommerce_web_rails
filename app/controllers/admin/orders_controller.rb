@@ -1,9 +1,11 @@
 class Admin::OrdersController < AdminController
   before_action :load_order, except: :index
+  authorize_resource
 
   def index
     @status = params[:status]
     @orders = Order.newest_first
+    authorize! :index, @orders
     if Order.statuses.keys.include? params[:status]
       @orders = @orders.status(@status)
     else
