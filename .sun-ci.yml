@@ -28,11 +28,8 @@ jobs:
       MYSQL_PASSWORD: password_test
       MYSQL_ROOT_PASSWORD: password_test
   before_script:
-  - apt-get update --yes
-  - apt-get install --yes npm
-  - npm install --global yarn
   - bundle _2.1.2_ install --path vendor/bundle
-  - yarn add ion-rangeslider
+  - bundle exec rake yarn:install_packages
   script:
   - RAILS_ENV=test bundle exec rails db:drop db:create db:migrate
   - bundle _2.1.2_ exec rspec
