@@ -11,8 +11,7 @@ class Admin::OrdersController < AdminController
     else
       @status = "all"
     end
-    @orders = @orders.paginate page: params[:page],
-                               per_page: Settings.order.per_page
+    @pagy, @orders = pagy @orders, items: Settings.order.per_page
   end
 
   def forward

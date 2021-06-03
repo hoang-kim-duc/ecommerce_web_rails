@@ -8,9 +8,8 @@ class OrdersController < ApplicationController
   before_action :check_pending_order, only: :cancel
 
   def index
-    @orders = current_user.orders.newest_first
-                          .paginate page: params[:page],
-                                    per_page: Settings.order.per_page
+    @pagy, @orders = pagy current_user.orders.newest_first,
+                          items: Settings.order.per_page
   end
 
   def show; end

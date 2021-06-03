@@ -21,6 +21,7 @@ gem "will_paginate", "3.1.8"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "devise"
 gem "cancancan"
+gem "pagy", "~> 3.5"
 
 group :development, :test do
   gem "rspec-rails", "~> 4.0.1"

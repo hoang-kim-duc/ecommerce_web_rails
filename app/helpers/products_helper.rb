@@ -8,8 +8,7 @@ module ProductsHelper
       @products = @products.with_price limit_price[0], limit_price[1]
     end
     sort_products
-    @products = @products.paginate page: params[:page],
-                                   per_page: Settings.product.per_page
+    @pagy, @products = pagy @products, items: Settings.product.per_page
   end
 
   def set_price_slider_arg

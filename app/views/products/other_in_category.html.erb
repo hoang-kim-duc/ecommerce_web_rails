@@ -1,6 +1,7 @@
 <% provide :title, t(:other) %>
 <%= render "categories/breadcrumb" %>
+<%= render "products/display_option" %>
 <div class="row">
   <%= render @products %>
 </div>
-<div style="text-align: center;"><%= will_paginate @products %></div>
+<div style="text-align: center;"><%== pagy_bootstrap_nav @pagy %></div>

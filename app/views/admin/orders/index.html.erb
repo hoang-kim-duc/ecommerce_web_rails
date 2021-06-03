@@ -61,7 +61,7 @@
     <% end %>
   </tbody>
 </table>
-<div style="text-align: center;"><%= will_paginate @orders %></div>
+<div style="text-align: center;"><%== pagy_bootstrap_nav @pagy %></div>
 <script>
   $("#<%= @status %>").addClass("active")
 </script>
