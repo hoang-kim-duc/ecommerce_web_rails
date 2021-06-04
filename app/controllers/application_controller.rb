@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include CartsHelper
   include OrdersHelper
   include ProductsHelper
+  include Pagy::Backend
 
   around_action :switch_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -19,6 +20,7 @@ class ApplicationController < ActionController::Base
   def switch_locale &action
     locale = params[:locale] || I18n.default_locale
     I18n.locale = locale
+    @pagy_locale = locale
     I18n.with_locale locale, &action
   end
 

@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   FLASH_MAP = {notice: :info, alert: :warning}.freeze
 
   def full_title page_title = ""

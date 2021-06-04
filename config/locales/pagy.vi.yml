@@ -1,0 +1,6 @@
+vi:
+  pagy:
+    nav:
+      prev: "&lsaquo;&nbsp;Trước"
+      next: "Tiếp&nbsp;&rsaquo;"
+      gap: "&hellip;"
