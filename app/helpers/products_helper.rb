@@ -1,14 +1,18 @@
 module ProductsHelper
-  SORT_LIST = [:name_asc, :newest, :price_asc, :price_desc].freeze
+  SORT_LIST = [:name_asc, :created_at_desc, :price_asc, :price_desc].freeze
 
   def apply_filter_and_paging_on_products
-    @products = @products.search params[:keyword] if params[:keyword]
+    @q = @products.ransack params[:q]
+    @products = @q.result
     set_price_slider_arg
-    if limit_price
-      @products = @products.with_price limit_price[0], limit_price[1]
-    end
+    apply_price_filter if limit_price
     sort_products
     @pagy, @products = pagy @products, items: Settings.product.per_page
+  end
+
+  def apply_price_filter
+    slider_query = {price_gteq: slider_from, price_lteq: slider_to}
+    @products = @products.ransack(slider_query).result
   end
 
   def set_price_slider_arg
@@ -25,8 +29,11 @@ module ProductsHelper
   def sort_products
     return unless SORT_LIST.include? params[:sort]&.to_sym
 
-    @sort_type = params[:sort].to_sym
-    @products = @products.send @sort_type
+    @selected_sort = params[:sort]
+    sort_type = @selected_sort.reverse.sub("_", " ").reverse
+    @q = @products.ransack
+    @q.sorts = sort_type
+    @products = @q.result
   end
 
   def limit_price
@@ -49,7 +56,7 @@ module ProductsHelper
     option_tags = ""
     SORT_LIST.each do |sort|
       selected = ""
-      selected = "selected='selected'" if sort == @sort_type
+      selected = "selected='selected'" if sort == @selected_sort&.to_sym
       option_tags += "<option value=#{sort} #{selected}>
                       #{t "product.sort.#{sort}"}
                       </option>"

@@ -11,7 +11,7 @@ vi:
     price_limit: "Chọn khoảng giá"
     sort:
       name_asc: Theo tên
-      newest: Mới nhất
+      created_at_desc: Mới nhất
       price_asc: Giá tăng dần
       price_desc: Giá giảm dần
     errors:
