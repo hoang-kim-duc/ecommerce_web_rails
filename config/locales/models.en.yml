@@ -11,7 +11,7 @@ en:
     price_limit: "Choose price range"
     sort:
       name_asc: "By name"
-      newest: "By created date"
+      created_at_desc: "By created date"
       price_asc: "By price ascending"
       price_desc: "By price descending"
     errors:
