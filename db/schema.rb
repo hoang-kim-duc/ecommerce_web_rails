@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_033248) do
+ActiveRecord::Schema.define(version: 2021_06_07_155032) do
 
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_033248) do
     t.bigint "delivery_address_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["created_at"], name: "index_orders_on_created_at"
     t.index ["delivery_address_id"], name: "fk_rails_9fa1dd8f1c"
     t.index ["user_id"], name: "fk_rails_f868b47f6a"
   end
@@ -65,6 +66,17 @@ ActiveRecord::Schema.define(version: 2021_06_01_033248) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "fk_rails_fb915499a4"
+  end
+
+  create_table "sales", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "product_id"
+    t.integer "quantity"
+    t.integer "revenue"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["date"], name: "index_sales_on_date"
+    t.index ["product_id"], name: "fk_rails_afd82832c8"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -98,4 +110,5 @@ ActiveRecord::Schema.define(version: 2021_06_01_033248) do
   add_foreign_key "orders", "delivery_addresses"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
+  add_foreign_key "sales", "products"
 end
