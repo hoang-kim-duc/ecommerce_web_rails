@@ -22,3 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+![hippo](https://media3.giphy.com/media/aUovxH8Vf9qDu/giphy.gif)
