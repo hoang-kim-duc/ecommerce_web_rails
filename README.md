@@ -12,3 +12,5 @@ I did this project when I was learning Ruby on Rails.
 ![Peek 2021-11-21 16-06](https://user-images.githubusercontent.com/36145851/142756160-1ab23ae6-fa67-43b6-b857-59603c10eb94.gif)
 # Daily report sent to email
 ![image](https://user-images.githubusercontent.com/36145851/142756224-aab82568-c92d-438a-8b38-e5c01d6dbdb8.png)
+# Advance Filter
+![Peek 2021-11-21 16-10](https://user-images.githubusercontent.com/36145851/142756279-0aa6a5ce-a481-4af5-8be3-4f0b42114e24.gif)
